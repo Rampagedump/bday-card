@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="이정미 과장님, 생일 진심으로 축하드려요! 봉투를 눌러 열어보세요.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="이정미 과장님, 생일 축하드려요!">
+<meta property="og:description" content="생일 축하 신용장이 도착했어요. 봉투를 눌러 열어보세요.">
+<meta property="og:image" content="https://rampagedump.github.io/bday-card/og.png">
+<meta property="og:url" content="https://rampagedump.github.io/bday-card/">
+<title>이정미 과장님 생일 축하</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&family=Gowun+Dodum&family=Gaegu:wght@700&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: warm, playful, affectionate gift from colleagues
+   IDEA a Letter of Credit she has negotiated a thousand times, reissued as a birthday L/C, stamped "NEGO 완료"
+   PICTURE the document itself: airmail-striped paper with a drawn cake and a big approval stamp
+   COLOUR strawberry pink ground, paper white, berry ink, butter yellow + mint as accents
+   TYPE Jua display + Gowun Dodum text + Gaegu handwriting for the signature
+   LAYOUT one centred card on one screen; envelope opens on arrival, card rises, stamp lands */
+:root{color-scheme:light dark;--bg:light-dark(#ffc9d6,#2b1220);--dot:light-dark(#ffb3c4,#3a1a2c);--ink:#3a1630;--paper:#fffdfb;--berry:#e0456f;--berry2:#c22f59;--butter:#ffd76a;--mint:#8fe0c4;--soft:#6e4a5f;--line:#f3d2dc}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{height:100%}
+body{margin:0;background:var(--bg) radial-gradient(var(--dot) 2.2px,transparent 2.6px) 0 0/26px 26px;color:var(--ink);font:16px/1.6 "Gowun Dodum",system-ui,sans-serif;overflow-x:clip;word-break:keep-all}
+.stage{min-height:100%;display:grid;place-items:center;padding:28px max(16px,4vw) 40px;gap:18px;align-content:center}
+.card{position:relative;width:min(620px,100%);background:var(--paper);border-radius:18px;padding:12px;box-shadow:0 18px 40px -18px rgba(120,20,60,.45)}
+.edge{border-radius:12px;padding:3px;background:repeating-linear-gradient(-45deg,var(--berry) 0 12px,var(--paper) 12px 20px,var(--mint) 20px 32px,var(--paper) 32px 40px)}
+.inner{background:var(--paper);border-radius:9px;padding:clamp(20px,4vw,34px)}
+.top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start}
+.kind{font-size:14px;color:var(--soft);margin:0 0 4px}
+h1{font-family:Jua,sans-serif;font-weight:400;font-size:clamp(38px,8vw,56px);line-height:1.05;letter-spacing:-.01em;margin:0;color:var(--berry2);text-wrap:balance}
+.to{font-family:Jua,sans-serif;font-size:clamp(20px,4.2vw,26px);margin:8px 0 0}
+.cake{width:clamp(96px,22vw,138px);height:auto;margin-top:-6px}
+.flame{transform-origin:50% 100%;animation:flick 1.4s ease-in-out infinite}
+.flame:nth-of-type(2){animation-delay:.35s}
+.flame:nth-of-type(3){animation-delay:.7s}
+@keyframes flick{0%,100%{transform:scale(1,1)}50%{transform:scale(.86,1.12)}}
+.no{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;font-size:13.5px;color:var(--soft);border-top:2px dashed var(--line);border-bottom:2px dashed var(--line);padding:8px 0;margin:18px 0 6px}
+.no b{color:var(--ink);font-weight:400;white-space:nowrap}
+dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:0 16px;margin:0}
+dt,dd{padding:9px 0;border-bottom:1px solid var(--line)}
+dt{font-size:14px;color:var(--soft);white-space:nowrap}
+dt small{display:block;font-size:13px;opacity:.75}
+dd{margin:0;font-size:16.5px}
+dd strong{font-family:Jua,sans-serif;font-weight:400;font-size:19px;color:var(--berry2)}
+ol{margin:0;padding-left:1.2em}
+.tag{display:inline-block;background:var(--butter);border-radius:6px;padding:0 7px;font-size:14px;margin-left:4px;white-space:nowrap}
+.msg{position:relative;margin:20px 0 0;padding:18px 20px;background:#fff4f6;border-radius:14px;font-size:17px;line-height:1.75}
+.msg p{margin:0 0 8px}
+.sign{font-family:Gaegu,cursive;font-size:26px;text-align:right;color:var(--berry2);margin:0;line-height:1.25}
+.sign span{white-space:nowrap;display:inline-block}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:6px}
+.stamp{flex:none;width:clamp(104px,24vw,132px);height:auto;transform:rotate(-14deg);opacity:.9;pointer-events:none}
+.again{font:inherit;font-family:Jua,sans-serif;font-size:18px;color:#fff;background:var(--berry);border:0;border-radius:999px;min-height:48px;padding:10px 26px;cursor:pointer;box-shadow:0 4px 0 var(--berry2)}
+.again:hover{background:var(--berry2)}
+.again:active{transform:translateY(3px);box-shadow:0 1px 0 var(--berry2)}
+.again:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+/* envelope intro */
+.env{position:fixed;inset:0;display:none;place-items:center;z-index:4;background:transparent;cursor:pointer}
+.intro .env{display:grid}
+.intro .card,.intro .again{opacity:0;transform:translateY(60px) scale(.94)}
+.card,.again{transition:opacity .7s ease .25s,transform .8s cubic-bezier(.2,.9,.3,1.15) .25s}
+.envbox{position:relative;width:min(360px,82vw);aspect-ratio:1.5;perspective:900px;transition:transform .7s ease,opacity .6s ease}
+.envbox .body{position:absolute;inset:0;border-radius:12px;background:#fff0f3;box-shadow:0 18px 40px -16px rgba(120,20,60,.5)}
+.envbox .pocket{position:absolute;inset:0;border-radius:12px;overflow:hidden}
+.envbox .flap{position:absolute;left:0;right:0;top:0;height:58%;transform-origin:50% 0;transition:transform .6s ease;z-index:2}
+.envbox .label{position:absolute;left:0;right:0;bottom:16%;text-align:center;font-family:Jua,sans-serif;font-size:clamp(18px,5vw,22px);color:var(--berry2);z-index:1}
+.envbox .seal{position:absolute;left:50%;top:58%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:var(--berry);color:#fff;display:grid;place-items:center;font-family:Jua,sans-serif;font-size:13px;z-index:3;box-shadow:inset 0 -3px 0 var(--berry2);transition:opacity .3s}
+.hint{position:absolute;left:0;right:0;top:calc(100% + 18px);text-align:center;font-size:15px;color:var(--ink)}
+.opening .flap{transform:rotateX(180deg)}
+.opening .seal,.opening .hint{opacity:0}
+.opened .envbox{transform:translateY(40vh) scale(.9);opacity:0}
+.opened .env{pointer-events:none}
+.stamp-in{animation:thump .45s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes thump{0%{transform:rotate(-14deg) scale(2.4);opacity:0}100%{transform:rotate(-14deg) scale(1);opacity:.9}}
+@media(max-width:600px){dl{grid-template-columns:minmax(0,1fr)}dt{border-bottom:0;padding-bottom:0}dd{padding-top:2px}dt small{display:inline;margin-left:6px}.msg{padding:16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+
+<div class="env" id="env" role="button" tabindex="0" aria-label="편지 봉투 열기">
+  <div class="envbox">
+    <div class="body"></div>
+    <svg class="pocket" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0 L150 118 L300 0 V200 H0 Z" fill="#ffdbe4"/>
+      <path d="M0 200 L130 104 Q150 92 170 104 L300 200 Z" fill="#ffcfdb"/>
+    </svg>
+    <svg class="flap" viewBox="0 0 300 116" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0 H300 L162 108 Q150 116 138 108 Z" fill="#ffb8c9"/>
+    </svg>
+    <div class="label">To. 이정미 과장님</div>
+    <div class="seal">HBD</div>
+    <div class="hint">봉투를 눌러 열어보세요</div>
+  </div>
+</div>
+
+<main class="stage">
+  <article class="card" aria-label="생일 축하 카드">
+    <div class="edge"><div class="inner">
+      <div class="top">
+        <div>
+          <p class="kind">생일 축하 신용장 · Birthday&nbsp;L/C</p>
+          <h1>Happy Birthday!</h1>
+          <p class="to">이정미 과장님, 생일 축하드려요</p>
+        </div>
+        <svg class="cake" viewBox="0 0 140 150" aria-hidden="true">
+          <ellipse cx="70" cy="140" rx="60" ry="8" fill="#000" opacity=".08"/>
+          <rect x="16" y="88" width="108" height="50" rx="10" fill="#ff9fb5"/>
+          <rect x="16" y="88" width="108" height="16" rx="8" fill="#ffd2dd"/>
+          <path d="M16 100 q9 12 18 0 q9 12 18 0 q9 12 18 0 q9 12 18 0 q9 12 18 0 q9 12 18 0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+          <rect x="30" y="52" width="80" height="40" rx="9" fill="#fff3d6"/>
+          <path d="M30 64 q8 10 16 0 q8 10 16 0 q8 10 16 0 q8 10 16 0 q8 10 16 0" fill="none" stroke="#ff9fb5" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="44" cy="118" r="4" fill="#fff"/><circle cx="70" cy="122" r="4" fill="#ffd76a"/><circle cx="96" cy="118" r="4" fill="#8fe0c4"/>
+          <rect x="47" y="28" width="7" height="26" rx="3" fill="#8fe0c4"/>
+          <rect x="66.5" y="24" width="7" height="30" rx="3" fill="#ffd76a"/>
+          <rect x="86" y="28" width="7" height="26" rx="3" fill="#ff7fa0"/>
+          <path class="flame" d="M50.5 26 c-6 -6 -2 -14 0 -18 c2 4 6 12 0 18z" fill="#ffb347"/>
+          <path class="flame" d="M70 22 c-6 -6 -2 -14 0 -18 c2 4 6 12 0 18z" fill="#ffb347"/>
+          <path class="flame" d="M89.5 26 c-6 -6 -2 -14 0 -18 c2 4 6 12 0 18z" fill="#ffb347"/>
+        </svg>
+      </div>
+
+      <div class="no"><span>L/C No. <b>HBD-2026-LJM</b></span><span>개설 은행 <b>우리 팀 행복은행</b></span></div>
+
+      <dl>
+        <dt>수익자<small>Beneficiary</small></dt><dd><strong>이정미 과장님</strong></dd>
+        <dt>개설 신청인<small>Applicant</small></dt><dd>기초소재그룹 전주신</dd>
+        <dt>금액<small>Amount</small></dt><dd>감사와 존경, 한도 없음<span class="tag">Unlimited</span></dd>
+        <dt>유효기일<small>Expiry</small></dt><dd>없음. 매년 오늘 자동 갱신</dd>
+        <dt>요구 서류<small>Documents</small></dt>
+        <dd><ol><li>달콤한 케이크 1 EA</li><li>오늘 하루 웃음 Full Set</li><li>행복 Original 3/3</li></ol></dd>
+        <dt>특기 사항<small>Remarks</small></dt><dd>하자(Discrepancy) 없음. 전 서류 일치로 즉시 지급</dd>
+      </dl>
+
+      <div class="msg">
+        <p>과장님, 생일 진심으로 축하드려요!</p>
+        <p>오랜 시간 서류 한 장, 숫자 하나까지 꼼꼼하게 챙겨주신 덕분에 저희가 늘 든든하게 일할 수 있었어요. 까다로운 네고도 과장님 손을 거치면 깔끔하게 끝나는 거, 다들 알고 있답니다.</p>
+        <p>오늘만큼은 하자 없이, 행복만 가득한 하루 보내세요.</p>
+        <div class="foot"><svg class="stamp" id="stamp" viewBox="0 0 160 160" aria-label="NEGO 완료 도장">
+      <defs><path id="ring" d="M80 80 m-58 0 a58 58 0 1 1 116 0 a58 58 0 1 1 -116 0"/></defs>
+      <circle cx="80" cy="80" r="74" fill="none" stroke="#e0456f" stroke-width="5"/>
+      <circle cx="80" cy="80" r="44" fill="none" stroke="#e0456f" stroke-width="2.5"/>
+      <text font-family="Jua, sans-serif" font-size="15" fill="#e0456f" letter-spacing="2"><textPath href="#ring">HAPPY BIRTHDAY ★ HAPPY BIRTHDAY ★</textPath></text>
+      <text x="80" y="76" text-anchor="middle" font-family="Jua, sans-serif" font-size="22" fill="#e0456f">NEGO</text>
+      <text x="80" y="100" text-anchor="middle" font-family="Jua, sans-serif" font-size="20" fill="#e0456f">완료</text>
+    </svg>
+        <p class="sign"><span>기초소재그룹</span> <span>전주신 드림</span></p></div>
+      </div>
+    </div></div>
+
+  </article>
+
+  <button class="again" id="again" type="button">한 번 더 축하하기</button>
+</main>
+
+<script>
+{
+const root=document.documentElement;
+const env=document.getElementById('env');
+const stamp=document.getElementById('stamp');
+const cv=document.getElementById('fx');
+const ctx=cv.getContext('2d');
+const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cols=['#e0456f','#ff9fb5','#ffd76a','#8fe0c4','#ffffff','#b48cff'];
+let bits=[],raf=0;
+
+const size=()=>{const d=devicePixelRatio||1;cv.width=innerWidth*d;cv.height=innerHeight*d;ctx.setTransform(d,0,0,d,0,0)};
+const sized=new ResizeObserver(size);sized.observe(document.body);size();
+
+const burst=()=>{
+  if(still)return;
+  for(let i=0;i<140;i++){
+    const left=i%2===0;
+    bits.push({x:left?-10:innerWidth+10,y:innerHeight*0.7,vx:(left?1:-1)*(4+Math.random()*7),vy:-(8+Math.random()*9),r:4+Math.random()*5,a:Math.random()*6,va:(Math.random()-.5)*0.3,c:cols[i%cols.length],s:Math.random()<.4,life:0});
+  }
+  if(!raf)raf=requestAnimationFrame(tick);
+};
+const tick=()=>{
+  ctx.clearRect(0,0,innerWidth,innerHeight);
+  bits=bits.filter(b=>b.y<innerHeight+30&&b.life<400);
+  for(const b of bits){
+    b.vy+=0.28;b.vx*=0.985;b.x+=b.vx;b.y+=b.vy;b.a+=b.va;b.life++;
+    ctx.save();ctx.translate(b.x,b.y);ctx.rotate(b.a);ctx.fillStyle=b.c;
+    if(b.s){ctx.beginPath();ctx.arc(0,0,b.r*0.6,0,7);ctx.fill()}else ctx.fillRect(-b.r,-b.r*0.4,b.r*2,b.r*0.8);
+    ctx.restore();
+  }
+  raf=bits.length?requestAnimationFrame(tick):0;
+};
+const stampIt=()=>{stamp.classList.remove('stamp-in');void stamp.getBoundingClientRect();stamp.classList.add('stamp-in')};
+
+let opened=false;
+const open=()=>{
+  if(opened)return;opened=true;
+  root.classList.add('opening');
+  setTimeout(()=>{root.classList.add('opened');root.classList.remove('intro')},650);
+  setTimeout(()=>{stampIt();burst()},1500);
+  setTimeout(()=>{env.style.display='none'},1700);
+};
+
+if(!still){
+  root.classList.add('intro');
+  env.addEventListener('click',open);
+  env.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  setTimeout(open,2600);
+}
+document.getElementById('again').addEventListener('click',()=>{stampIt();burst()});
+}
+</script>
+</body>
+</html>
